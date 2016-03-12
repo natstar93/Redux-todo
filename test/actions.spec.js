@@ -1,9 +1,14 @@
 import chai from 'chai';
+import { addTodo } from '../actions/TodoActions'
 const expect = chai.expect;
 
 describe('actions', () => {
   it('creates action to add a todo', () => {
-    const todoName = 'Test with Mocha';
-    expect(1).to.equal(1);
+    const text = 'Test with Mocha';
+    const expectedAction = {
+      type: 'ADD_TODO',
+      text
+    }
+    expect(addTodo(text)).to.contain(expectedAction);
   });
 });
