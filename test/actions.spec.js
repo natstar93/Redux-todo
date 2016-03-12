@@ -1,5 +1,5 @@
 import chai from 'chai';
-import { addTodo, completeTodo, setVisibilityFilter } from '../actions/TodoActions'
+import { addTodo, completeTodo, setVisibilityFilter } from '../actions/todoActions';
 const expect = chai.expect;
 
 describe('actions', () => {
