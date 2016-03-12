@@ -1,5 +1,5 @@
 import chai from 'chai';
-import { addTodo, completeTodo } from '../actions/TodoActions'
+import { addTodo, completeTodo, setVisibilityFilter } from '../actions/TodoActions'
 const expect = chai.expect;
 
 describe('actions', () => {
@@ -8,7 +8,7 @@ describe('actions', () => {
     const expectedAction = {
       type: 'ADD_TODO',
       text: text
-    }
+    };
     expect(addTodo(text)).to.eql(expectedAction);
   });
 
@@ -17,7 +17,16 @@ describe('actions', () => {
     const expectedAction = {
       type: 'COMPLETE_TODO',
       index: 0
-    }
+    };
     expect(completeTodo(index)).to.eql(expectedAction);
   });
+
+  it('creates action to set visibility filter', () => {
+    const filter = 'SHOW ALL';
+    const expectedAction = {
+      type: 'SET_VISIBILITY_FILTER',
+      filter: filter
+    };
+    expect(setVisibilityFilter(filter)).to.eql(expectedAction);
+  })
 });
