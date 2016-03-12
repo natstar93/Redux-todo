@@ -7,8 +7,8 @@ describe('actions', () => {
     const text = 'Test with Mocha';
     const expectedAction = {
       type: 'ADD_TODO',
-      text
+      text: text
     }
-    expect(addTodo(text)).to.contain(expectedAction);
+    expect(addTodo(text)).to.eql(expectedAction);
   });
 });
