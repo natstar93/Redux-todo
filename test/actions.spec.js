@@ -1,5 +1,5 @@
 import chai from 'chai';
-import { addTodo } from '../actions/TodoActions'
+import { addTodo, completeTodo } from '../actions/TodoActions'
 const expect = chai.expect;
 
 describe('actions', () => {
@@ -10,5 +10,14 @@ describe('actions', () => {
       text: text
     }
     expect(addTodo(text)).to.eql(expectedAction);
+  });
+
+  it('creates action to remove a todo', () => {
+    const index = 0;
+    const expectedAction = {
+      type: 'COMPLETE_TODO',
+      index: 0
+    }
+    expect(completeTodo(index)).to.eql(expectedAction);
   });
 });
