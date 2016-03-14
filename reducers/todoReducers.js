@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions/todoActions';
+import { ADD_TODO, COMPLETE_TODO } from '../actions/todoActions';
 
 const initialState = [{
   text: 'Learn redux',
@@ -6,11 +6,22 @@ const initialState = [{
 }];
 
 export default function todos(state = initialState, action) {
-  if (action.type === ADD_TODO) {
-    return Object.assign([...state, {
-      text: action.text,
-      completed: false
-    }]);
+  switch (action.type) {
+    case ADD_TODO:
+      return Object.assign([...state, {
+        text: action.text,
+        completed: false
+      }])
+    case COMPLETE_TODO:
+      return Object.assign([...state.map((newTodo, index) => {
+        if (index === action.index) {
+          return Object.assign({}, newTodo, {
+            completed: true
+          })
+        }
+        return newTodo;
+      })])
+    default:
+      return state;
   }
-  return state;
 };

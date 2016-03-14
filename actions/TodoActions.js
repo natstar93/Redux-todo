@@ -1,5 +1,5 @@
 export const ADD_TODO = 'ADD_TODO';
-const COMPLETE_TODO = 'COMPLETE_TODO';
+export const COMPLETE_TODO = 'COMPLETE_TODO';
 const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
 export function addTodo(text) {
