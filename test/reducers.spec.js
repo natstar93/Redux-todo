@@ -36,6 +36,26 @@ describe('todos reducer', () => {
         text: 'Git commit',
         completed: true
       }]
-    )
+    );
+    expect(reducer([{
+      text: 'Git add',
+      completed: false
+    },
+    {
+      text: 'Git commit',
+      completed: false
+    }], {
+      type: COMPLETE_TODO,
+      index: 1
+    })).to.eql(
+      [{
+        text: 'Git add',
+        completed: false
+      },
+      {
+        text: 'Git commit',
+        completed: true
+      }]
+    );
   });
 });
