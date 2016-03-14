@@ -7,7 +7,7 @@ const initialState = [{
 
 export default function todos(state = initialState, action) {
   if (action.type === ADD_TODO) {
-    return (state, [{
+    return Object.assign([...state, {
       text: action.text,
       completed: false
     }]);
